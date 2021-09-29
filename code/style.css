@@ -1,3 +1,37 @@
+/*When you have the data that you need from the API, 
+it's time to display it in a good way on the page. 
+Think about how you want your page to look. 
+Do you want to use an HTML table? 
+Maybe the repos could be displayed in a grid format, with all the information inside? 
+Maybe you want to make it look as closely to GitHub as possible?
+
+- A list of all repos that are forked from Technigo - KLART
+- Your username and profile picture - KLART
+- Most recent update (push) for each repo - KLART + formatting 
+- Name of your default branch for each repo - KLART
+- URL to the actual GitHub repo - KLART
+- Number of commits for each repo - HOW DO I FETCH THIS URL? 
+- It should be responsive (mobile first)
+- A visualisation, for example through a pie chart, 
+of how many projects you've done so far, 
+compared to how many you will do (in total it will be 19 weekly projects 🥳) 
+using [Chart.js](https://www.chartjs.org/).*/
+
 body {
-  background: #FFECE9;
+  background: #ffece9;
+  font-family: 'Montserrat';
+	font-weight: regular;
+}
+
+.profile_picture {
+  height: 100px;
+}
+
+.logo {
+  height: 150px;
+}
+
+.footer {
+  margin-top: 30px;
+  margin-bottom: 0;
 }
