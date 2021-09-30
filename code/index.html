@@ -16,21 +16,31 @@
 </head>
 
 <body>
-  <section id="user">
-    <h1>GitHub Tracker</h1>
-    <h2>user</h2>
-  </section>
-  
+
   <section class="header">
-    <h2>Projects:</h2>
-    <main id="projects"></main>
+    <h1>GitHub tracker</h1>
   </section>
 
-  <!-- This will be used to draw the chart 👇 -->
-  <canvas id="chart"></canvas>
+  <div class="userChart">
+  <section class="user-id">
+    <main id="user"></main>
+  </section>
+
+    <!-- This will be used to draw the chart 👇 -->
+  <section class="pie-chart">
+    <h3>here comes a chart</h3>
+    <canvas id="chart"></canvas>
+  </section>
+ </div>
+  
+  <section class="project-list">
+    <h3>projects</h3>
+    <main id="projects" class="project-container"></main>
+  </section>
 
   <section class="footer">
     <img src="https://i.ibb.co/HnRPSK9/craftedbyida.png" class="logo" alt="image of logo">
+    <img src="https://i.ibb.co/9h2nXKf/github-black.jpg" class="git-logo" alt="image of gitlogo">
   </section>
 
   <script src="./script.js"></script>

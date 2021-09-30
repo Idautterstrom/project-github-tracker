@@ -14,8 +14,8 @@ fetch(API_USER)
 .then((res) => res.json())
 .then((git_user) => {
     console.log(git_user) //Mitt repo
-    user.innerHTML = `username: ${git_user.login} </br> <img src="https://avatars.githubusercontent.com/u/80784577?v=4" class="profile_picture" alt="profilepicture">`
-}) //kolla när hämtning 
+    user.innerHTML = `<button onclick="https://github.com/Idautterstrom" class="user-name">${git_user.login}</button> </br> <img src="https://avatars.githubusercontent.com/u/80784577?v=4" class="profile_picture" alt="profilepicture">`
+}) 
 
 fetch(API_KEY) 
    .then((res) => res.json())
@@ -24,10 +24,11 @@ fetch(API_KEY)
        git_list.forEach(repo => { //Börjat loopa igenom arrayen
            console.log(repo.fork)
            if (repo.fork === true) { //om ett specifikt värde
-               projects.innerHTML += `Name of repo: ${repo.name} </br> Last pushed: ${repo.pushed_at} </br> Branch: ${repo.default_branch} </br> Git url: ${repo.git_url} </br> Number of commits: ${repo.commits_url} </br>`  //formatting av $datum
+               projects.innerHTML += `<div class="items"> Name of repo: ${repo.name} </br> Git url: ${repo.git_url} </br> Last pushed: ${repo.pushed_at} </br> Branch: ${repo.default_branch} </br> Number of commits: ${repo.commits_url}</div>`
            }
        });
    })
+
 
 
   

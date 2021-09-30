@@ -3,13 +3,7 @@ it's time to display it in a good way on the page.
 Think about how you want your page to look. 
 Do you want to use an HTML table? 
 Maybe the repos could be displayed in a grid format, with all the information inside? 
-Maybe you want to make it look as closely to GitHub as possible?
 
-- A list of all repos that are forked from Technigo - KLART
-- Your username and profile picture - KLART
-- Most recent update (push) for each repo - KLART + formatting 
-- Name of your default branch for each repo - KLART
-- URL to the actual GitHub repo - KLART
 - Number of commits for each repo - HOW DO I FETCH THIS URL? 
 - It should be responsive (mobile first)
 - A visualisation, for example through a pie chart, 
@@ -19,19 +13,101 @@ using [Chart.js](https://www.chartjs.org/).*/
 
 body {
   background: #ffece9;
-  font-family: 'Montserrat';
-	font-weight: regular;
+  font-family: "Montserrat";
+  font-weight: regular;
+  color: whitesmoke;
+  background-color: black;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.header {
+  margin-top: 30px;
+  margin: 30px;
+}
+
+.user-id {
+  justify-content: center;
+}
+
+.user-name {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: "Montserrat";
+  font-size: medium;
+  color: grey;
+  background-color: black;
 }
 
 .profile_picture {
   height: 100px;
+  border-radius: 1.5cm;
+}
+
+.pie-chart {
+  margin-top: 30px;
+}
+
+.project-list {
+  margin-top: 30px;
+}
+
+.project-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  color: black;
+  margin-top: 30px;
+  font-size: 0.3cm;
+}
+
+.items {
+  background-color: darkgray;
+  margin-bottom: 20px;
+  padding: 25px;
 }
 
 .logo {
-  height: 150px;
+  height: 125px;
+  margin-right: 10px;
+}
+
+.git-logo {
+  height: 75px;
+  border-radius: 1cm;
+  margin-left: 10px;
+  margin-bottom: 35px;
 }
 
 .footer {
   margin-top: 30px;
   margin-bottom: 0;
+  align-items: flex-end;
+}
+
+/*tablet menu*/
+
+@media (min-width: 768px) {
+  .project-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  }
+}
+
+/*big screen menu*/
+
+@media (min-width: 992px) {
+  .userChart {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .project-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
