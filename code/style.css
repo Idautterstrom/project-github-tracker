@@ -1,20 +1,6 @@
-/*When you have the data that you need from the API, 
-it's time to display it in a good way on the page. 
-Think about how you want your page to look. 
-Do you want to use an HTML table? 
-Maybe the repos could be displayed in a grid format, with all the information inside? 
-
-- Number of commits for each repo - HOW DO I FETCH THIS URL? 
-- It should be responsive (mobile first)
-- A visualisation, for example through a pie chart, 
-of how many projects you've done so far, 
-compared to how many you will do (in total it will be 19 weekly projects 🥳) 
-using [Chart.js](https://www.chartjs.org/).*/
-
 body {
   background: #ffece9;
   font-family: "Montserrat";
-  font-weight: regular;
   color: whitesmoke;
   background-color: black;
   text-align: center;
@@ -34,25 +20,24 @@ body {
 }
 
 .user-name {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  font-family: "Montserrat";
-  font-size: medium;
-  color: grey;
-  background-color: black;
+  color: rgb(135, 133, 133);
+  text-decoration: none;
+}
+
+.user-name:hover {
+  color: whitesmoke;
 }
 
 .profile_picture {
-  height: 100px;
-  border-radius: 1.5cm;
+  width: 100px;
+  border-radius: 4cm;
+  margin-top: 25px;
 }
 
 .pie-chart {
-  margin-top: 30px;
-}
-
-.project-list {
-  margin-top: 30px;
+  width: 50%;
+  margin-top: 40px;
+  margin-left: 25%;
 }
 
 .project-container {
@@ -61,15 +46,15 @@ body {
   align-items: center;
   justify-content: center;
   text-align: left;
-  color: black;
-  margin-top: 30px;
+  color: whitesmoke;
   font-size: 0.3cm;
 }
 
 .items {
-  background-color: darkgray;
-  margin-bottom: 20px;
+  background-color: #1a1b1a;
+  margin-bottom: 15px;
   padding: 25px;
+  border-radius: 0.3cm;
 }
 
 .logo {
@@ -96,13 +81,21 @@ body {
   .project-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
+    grid-gap: 20px;
   }
 }
 
 /*big screen menu*/
 
 @media (min-width: 992px) {
+  .profile_picture {
+    width: 250px;
+  }
+
+  .pie-chart {
+    margin-top: 0;
+  }
+
   .userChart {
     display: grid;
     grid-template-columns: 1fr 1fr;
