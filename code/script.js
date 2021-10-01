@@ -1,6 +1,7 @@
 const API_KEY = "https://api.github.com/users/idautterstrom/repos"; //Endpoint to get all my repos
 const API_USER = "https://api.github.com/users/idautterstrom"; //Endpoint to my username and profile picture
 
+
 const projects = document.getElementById("projects");
 const user = document.getElementById("user")
 
@@ -29,19 +30,36 @@ fetch(API_KEY)
                projects.innerHTML += 
                `<div class="items"> 
                <p>Name of repo: ${repo.name}</p> 
-               <p>Git url: ${repo.git_url}</p> 
+               <p>${repo.git_url}</p> 
                <p>Branch: ${repo.default_branch}</p> 
                <p>Last pushed: ${new Date(repo.pushed_at).toDateString()}</p> 
-               <p>Number of commits: ${repo.commits_url}</p> //how do I fetch the URL from this?
+               <p id="commits-${repo.name}">Number of commits:</p>
                </div>`
-           }
+
+            getPullRequests(git_list)
+          }
        });
    })
 
+   //Remember to pass along your filtered repos as an argument when
+//you are calling this function
 
+const getPullRequests = (repos) => {
+    //Get all the PRs for each project.
+    repos.forEach(repo => {
+      fetch('https://api.github.com/repos/technigo/${repo.name}/pulls')
+      .then(res => res.json())
+      .then(data => {
+            const myPullRequests = data.find((pull) => pull.user.login === repo.owner.login) //Find only the PR that you made by comparing pull.user.login with repo.owner.login
 
- 
+            if (myPullRequests) {
+                fetchCommits(myPullRequests.commits_url, repo.name);
+            } else {
+                document.getElementById(`commits-${repo.name}`).innerHTML =
+                    `No pull requests made`;
+            } 
+          })
+    })
+  }
 
-
-
-  
+   
