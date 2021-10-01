@@ -38,12 +38,6 @@ fetch(API_KEY)
        });
    })
 
-   const fetchPullRequests = (allRepositories) => {
-       allRepositories.forEach(repo => {
-           fetch(repo)
-       })
-   }
-
 
 
  
