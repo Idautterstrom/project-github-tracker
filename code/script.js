@@ -5,12 +5,6 @@ const API_USER = "https://api.github.com/users/idautterstrom"; //Endpoint to my 
 const projects = document.getElementById("projects");
 const user = document.getElementById("user")
 
-//To get the commits from a PR, you need to get the URL from the commits_url property in the PR json object. 
-//It might look something like this:
-//https://api.github.com/repos/Technigo/project-news-site/pulls/227/commits
-//and then do a fetch with that url.
-
-
 fetch(API_USER) 
 .then((res) => res.json())
 .then((git_user) => {
@@ -33,10 +27,10 @@ fetch(API_KEY)
                <p>${repo.git_url}</p> 
                <p>Branch: ${repo.default_branch}</p> 
                <p>Last pushed: ${new Date(repo.pushed_at).toDateString()}</p> 
-               <p id="commits-${repo.name}">Number of commits:</p>
+               <p>Number of commits:</p>
                </div>`
 
-            getPullRequests(git_list)
+        /*     getPullRequests(git_list); */
           }
        });
    })
@@ -44,9 +38,23 @@ fetch(API_KEY)
    //Remember to pass along your filtered repos as an argument when
 //you are calling this function
 
-const getPullRequests = (repos) => {
-    //Get all the PRs for each project.
-    repos.forEach(repo => {
+/* const numberOfCommits = (repos) => { */
+   /*  //Get all the PRs for each project.
+    const base_url = "http://api.github.com";
+    const owner = "idautterstrom";
+    const sha = "master";
+    let compare_url =
+      base_url + "/repos/" + owner + "/" + repo.name + "/commits" + sha;
+    fetch(compare_url)
+      .then((res) => res.json())
+      .then((data) =>{
+          console.log(data);
+          return data.stats.total;
+    }
+)} */
+
+
+/*   repos.forEach(repo => {
       fetch('https://api.github.com/repos/technigo/${repo.name}/pulls')
       .then(res => res.json())
       .then(data => {
@@ -59,7 +67,7 @@ const getPullRequests = (repos) => {
                     `No pull requests made`;
             } 
           })
-    })
-  }
+    })  */
+/* )} */
 
    

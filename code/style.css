@@ -13,10 +13,6 @@ body {
   margin-bottom: 40px;
 }
 
-.user-id {
-  justify-content: center;
-}
-
 .user-name {
   color: rgb(135, 133, 133);
   text-decoration: none;
@@ -80,6 +76,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
+    justify-content: center;
   }
 }
 
@@ -98,7 +95,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  
+
   .project-container {
     grid-template-columns: 1fr 1fr 1fr;
   }
