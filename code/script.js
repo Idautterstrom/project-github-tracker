@@ -21,53 +21,35 @@ fetch(API_KEY)
        git_list.forEach(repo => { //Börjat loopa igenom arrayen
            console.log(repo.fork)
            if (repo.fork === true) { //om ett specifikt värde
-               projects.innerHTML += 
+           let commits = numberOfCommits(repo)  //När vi anropar, Skickar med objektet till metoden 
+              projects.innerHTML += 
                `<div class="items"> 
                <p>Name of repo: ${repo.name}</p> 
                <p>${repo.git_url}</p> 
                <p>Branch: ${repo.default_branch}</p> 
                <p>Last pushed: ${new Date(repo.pushed_at).toDateString()}</p> 
-               <p>Number of commits:</p>
+               <p>Number of commits: ${commits}</p>
                </div>`
-
-        /*     getPullRequests(git_list); */
           }
        });
    })
 
    //Remember to pass along your filtered repos as an argument when
-//you are calling this function
+   //you are calling this function
 
-/* const numberOfCommits = (repos) => { */
-   /*  //Get all the PRs for each project.
-    const base_url = "http://api.github.com";
+const numberOfCommits = (repo) => {
+    const base_url = "https://api.github.com/";
     const owner = "idautterstrom";
     const sha = "master";
-    let compare_url =
-      base_url + "/repos/" + owner + "/" + repo.name + "/commits" + sha;
+    console.log(repo.name);
+    let compare_url = base_url + "/repos/" + owner + "/" + repo.name + "/commits";
     fetch(compare_url)
       .then((res) => res.json())
-      .then((data) =>{
-          console.log(data);
-          return data.stats.total;
-    }
-)} */
+      .then((data) => {
+        console.log(data.length);
+        return data.length;
+      });
+  };
 
-
-/*   repos.forEach(repo => {
-      fetch('https://api.github.com/repos/technigo/${repo.name}/pulls')
-      .then(res => res.json())
-      .then(data => {
-            const myPullRequests = data.find((pull) => pull.user.login === repo.owner.login) //Find only the PR that you made by comparing pull.user.login with repo.owner.login
-
-            if (myPullRequests) {
-                fetchCommits(myPullRequests.commits_url, repo.name);
-            } else {
-                document.getElementById(`commits-${repo.name}`).innerHTML =
-                    `No pull requests made`;
-            } 
-          })
-    })  */
-/* )} */
 
    
