@@ -40,7 +40,7 @@ fetch(API_KEY)
 const numberOfCommits = (repo) => {
     const base_url = "https://api.github.com/";
     const owner = "idautterstrom";
-    const sha = "master";
+/*     const sha = "master"; */
     console.log(repo.name);
     let compare_url = base_url + "/repos/" + owner + "/" + repo.name + "/commits";
     fetch(compare_url)
