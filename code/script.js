@@ -17,11 +17,11 @@ fetch(API_USER)
 fetch(API_KEY) 
    .then((res) => res.json())
    .then((git_list) => {
-       console.log(git_list) //Mitt repo
-       git_list.forEach(repo => { //Börjat loopa igenom arrayen
+       console.log(git_list) 
+       git_list.forEach(repo => { 
            console.log(repo.fork)
-           if (repo.fork === true) { //om ett specifikt värde
-           let commits = numberOfCommits(repo)  //När vi anropar, Skickar med objektet till metoden 
+           if (repo.fork) { 
+           let commits = numberOfCommits(repo)   
               projects.innerHTML += 
                `<div class="items"> 
                <p>Name of repo: ${repo.name}</p> 
@@ -34,15 +34,11 @@ fetch(API_KEY)
        });
    })
 
-   //Remember to pass along your filtered repos as an argument when
-   //you are calling this function
-
 const numberOfCommits = (repo) => {
     const base_url = "https://api.github.com/";
     const owner = "idautterstrom";
-/*     const sha = "master"; */
     console.log(repo.name);
-    let compare_url = base_url + "/repos/" + owner + "/" + repo.name + "/commits";
+    let compare_url = base_url + "repos/" + owner + "/" + repo.name + "/commits";
     fetch(compare_url)
       .then((res) => res.json())
       .then((data) => {
